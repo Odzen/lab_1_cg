@@ -86,6 +86,16 @@ class Vector3
             return *this;
         };
 
+        float Angle(Vector3 v){
+            float dot = Dot(v);
+            float length = Length() * v.Length();
+            float radians = acos(dot/length);
+
+            float degrees = radians * (180.0 / M_PI);
+
+            return degrees; // degrees
+        };
+
         void print(void){
             cout << "Vector: " << x << ", " << y << ", " << z << endl;
         };

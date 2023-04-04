@@ -11,6 +11,7 @@ int main(void)
     float dotValue = Vector3(1, 2, 3).Dot(Vector3(3, 2, 1));
     Vector3 vectorCross = Vector3(9, 4, 6) * Vector3(6, 1, 7);
     Vector3 vectorNorm = Vector3(1, 2, 3).Normalize();
+    float vectorAngle = Vector3(3, 2, -1).Angle(Vector3(0, 5, 2));
     
     vectorPlus.print();
     vectorSubstract.print();
@@ -18,4 +19,5 @@ int main(void)
     cout << dotValue << endl;
     vectorCross.print();
     vectorNorm.print();
+    cout << vectorAngle << endl;
 }
