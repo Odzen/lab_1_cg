@@ -1,8 +1,11 @@
 #ifndef VECTOR3_H
 #define VECTOR3_H
 
+
 #include <iostream>
-# include <math.h>
+#include <math.h>
+
+
 
 using namespace std;
 
@@ -89,7 +92,7 @@ class Vector3
         float Angle(Vector3 v){
             float dot = Dot(v);
             float length = Length() * v.Length();
-            float radians = acos(dot/length);
+            float radians = acos(dot / length);
 
             float degrees = radians * (180.0 / M_PI);
 
