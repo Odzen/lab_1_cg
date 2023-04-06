@@ -1,8 +1,14 @@
 
 #include <iostream>
 #include "Vector3.hpp"
+#include <glm/glm.hpp> // vec2, vec3, mat4, radians
+#include <glm/gtx/string_cast.hpp>
+
+
 
 using namespace std;
+using namespace glm;
+
 int main(void)
 {
     Vector3 vectorPlus = Vector3(1, 2, 3) + Vector3(7, 2, 5);
@@ -20,4 +26,14 @@ int main(void)
     vectorCross.print();
     vectorNorm.print();
     cout << vectorAngle << endl;
+    
+    // glm
+
+    
+    vec3 vector1 = vec3(9.f, 4.f, 6.f);
+    vec3 vector2 = vec3(6.f, 1.f, 7.f);
+
+    vec3 crossProduct = glm::cross(vector1, vector2);
+
+    cout << "Cross glm:" << glm::to_string(crossProduct) << endl;
 }
