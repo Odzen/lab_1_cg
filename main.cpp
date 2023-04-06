@@ -28,12 +28,19 @@ int main(void)
     cout << vectorAngle << endl;
     
     // glm
+    cout << endl;
+    cout << "Glm:" << endl;
 
-    
-    vec3 vector1 = vec3(9.f, 4.f, 6.f);
-    vec3 vector2 = vec3(6.f, 1.f, 7.f);
+    vec3 sum = vec3(1, 2, 3) +  vec3(7, 2, 5);
+    vec3 substract = vec3(1, 2, 3) -  vec3(7, 2, 5);
+    // vec3 scaling = vec3(4, 5, 9) * 5f;
+    double dotProduct = glm::dot(vec3(1, 2, 3),  vec3(3, 2, 1));
+    vec3 crossProduct = glm::cross(vec3(9, 4, 6),  vec3(6, 1, 7));
 
-    vec3 crossProduct = glm::cross(vector1, vector2);
-
+    cout << "Sum glm:" << glm::to_string(sum) << endl;
+    cout << "Rest glm:" << glm::to_string(substract) << endl;
+    cout << "Scaling glm:" << glm::to_string(substract) << endl;
     cout << "Cross glm:" << glm::to_string(crossProduct) << endl;
+    cout << "Dot glm:" << dotProduct << endl;
+    
 }
