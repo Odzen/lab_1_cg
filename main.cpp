@@ -29,6 +29,7 @@ int main(void)
     Vector3 vectorPlus = Vector3(1, 2, 3) + Vector3(7, 2, 5);
     Vector3 vectorSubstract = Vector3(1, 2, 3) - Vector3(7, 2, 5);
     Vector3 vectorMulti = Vector3(4, 5, 9) * 5;
+    Vector3 vectorDiv = Vector3(20, 5, 15) / 5;
     float dotValue = Vector3(1, 2, 3).Dot(Vector3(3, 2, 1));
     Vector3 vectorCross = Vector3(9, 4, 6) * Vector3(6, 1, 7);
     Vector3 vectorNorm = Vector3(1, 2, 3).Normalize();
@@ -37,6 +38,7 @@ int main(void)
     vectorPlus.print();
     vectorSubstract.print();
     vectorMulti.print();
+    vectorDiv.print();
     cout << dotValue << endl;
     vectorCross.print();
     vectorNorm.print();
@@ -49,6 +51,7 @@ int main(void)
     vec3 sum = vec3(1, 2, 3) +  vec3(7, 2, 5);
     vec3 substract = vec3(1, 2, 3) -  vec3(7, 2, 5);
     vec3 scaling = vec3(4, 5, 9) * 5.0f;
+    vec3 div = vec3(20, 5, 15) / 5.0f;
     double dotProduct = glm::dot(vec3(1, 2, 3),  vec3(3, 2, 1));
     vec3 crossProduct = glm::cross(vec3(9, 4, 6),  vec3(6, 1, 7));
     vec3 normalized = glm::normalize(vec3(1, 2, 3));
@@ -57,6 +60,7 @@ int main(void)
     cout << "Sum glm:" << glm::to_string(sum) << endl;
     cout << "Rest glm:" << glm::to_string(substract) << endl;
     cout << "Scaling glm:" << glm::to_string(scaling) << endl;
+    cout << "Div glm:" << glm::to_string(div) << endl;
     cout << "Dot glm:" << dotProduct << endl;
     cout << "Cross glm:" << glm::to_string(crossProduct) << endl;
     cout << "Normalized glm:" << glm::to_string(normalized) << endl;
