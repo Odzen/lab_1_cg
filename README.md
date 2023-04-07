@@ -25,4 +25,4 @@ When the program runs successfully, it should look like this:
 ![show](https://user-images.githubusercontent.com/49286935/230539913-16ae9925-338d-497b-9b3e-d7e2e5ed8bb1.png)
 
 ## TODO
-- [] Edit compiler.py to make it work across all Operating Systems
+- [x] Edit compiler.py to make it work across all Operating Systems
