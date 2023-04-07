@@ -7,7 +7,7 @@
 
 void runVectors()
 {
-    cout << "Manual:" << endl;
+    cout << "MANUAL" << endl;
     Vector3 vectorPlus3 = Vector3{1, 2, 3} + Vector3{7, 2, 5};
     Vector2 vectorPlus2 = Vector2{1.0f, 2.0f} + Vector2{7.0f, 2.0f};
     Vector1 vectorPlus1 = Vector1{1.0f} + Vector1{7.0f};
@@ -33,10 +33,6 @@ void runVectors()
 
     Vector3 vectorCross3 = v1.cross(v2);
 
-    float l1 = Vector3{9, 4, 6}.length();
-    float l2 = Vector2{9, 4}.length();
-    float l3 = Vector1{9}.length();
-
     Vector3 vectorNorm3 = Vector3{1, 2, 3}.normalize();
     Vector2 vectorNorm2 = Vector2{1, 2}.normalize();
     Vector1 vectorNorm1 = Vector1{2}.normalize();
@@ -44,37 +40,41 @@ void runVectors()
     float vectorAngle3 = Vector3{3, 2, -1}.angle(Vector3{0, 5, 2});
     float vectorAngle2 = Vector2{3, 2}.angle(Vector2{0, 5});
     float vectorAngle1 = Vector1{3}.angle(Vector1{0});
-    
+
+    cout << "Sum:" << endl;
     vectorPlus3.print();
     vectorPlus2.print();
     vectorPlus1.print();
 
+    cout << "Rest:" << endl;
     vectorSubstract3.print();
     vectorSubstract2.print();
     vectorSubstract1.print();
 
+    cout << "Multiplication by scalar:" << endl;
     vectorMulti3.print();
     vectorMulti2.print();
     vectorMulti1.print();
 
+    cout << "Division by scalar:" << endl;
     vectorDiv3.print();
     vectorDiv2.print();
     vectorDiv1.print();
 
+    cout << "Dot product:" << endl;
     cout << dotValue3 << endl;
     cout << dotValue2 << endl;
     cout << dotValue1 << endl;
 
+    cout << "Cross product in R3:" << endl;
     vectorCross3.print();
 
-    cout << l1 << endl;
-    cout << l2 << endl;
-    cout << l3 << endl;
-
+    cout << "Normalization:" << endl;
     vectorNorm3.print();
     vectorNorm2.print();
     vectorNorm1.print();
 
+    cout << "Angle:" << endl;
     cout << vectorAngle3 << endl;
     cout << vectorAngle2 << endl;
     cout << vectorAngle1 << endl;
