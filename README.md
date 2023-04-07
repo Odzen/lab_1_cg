@@ -22,7 +22,7 @@ This might not work on Linux or Mac yet. Tried it out only on Windows 11.
 
 ## Sucessful Output
 When the program runs successfully, it should look like this:
+![show](https://user-images.githubusercontent.com/49286935/230539913-16ae9925-338d-497b-9b3e-d7e2e5ed8bb1.png)
 
 ## TODO
 - [x] Edit compiler.py to make it work across all Operating Systems
-
