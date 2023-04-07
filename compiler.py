@@ -10,7 +10,7 @@ preprocessor = "-DGLEW_STATIC"
 
 def main():
     #compile
-    subprocess.call(f"g++ {preprocessor} -c main.cpp -I {include_dir}")
+    subprocess.call(f"g++ {preprocessor} -c src/main.cpp -I {include_dir}")
     
     # link
     subprocess.call(f"g++ {preprocessor} *.o -o {file_name} -L {lib_dir} {lib}")

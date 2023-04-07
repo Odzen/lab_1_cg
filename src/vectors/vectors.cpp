@@ -1,10 +1,9 @@
 
 #include <iostream>
-#include "Vector3.hpp"
+#include "Vector.hpp"
 #include <glm/glm.hpp> // vec2, vec3, mat4, radians
 #include <glm/gtx/string_cast.hpp>
 #include <glm/gtx/vector_angle.hpp>
-
 
 
 using namespace std;
@@ -24,7 +23,7 @@ float angleGlm(vec3 vector1, vec3 vector2)
     return glm::degrees(radians);
 };
 
-int main(void)
+void runVectors(void)
 {
 
     Vector3 vectorPlus3 = Vector3{1, 2, 3} + Vector3{7, 2, 5};
