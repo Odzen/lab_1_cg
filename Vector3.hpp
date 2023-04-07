@@ -1,5 +1,5 @@
-#ifndef VECTOR3_H
-#define VECTOR3_H
+#ifndef VECTOR_H
+#define VECTOR_H
 
 
 #include <iostream>
@@ -11,104 +11,160 @@
 
 using namespace std;
 
-class Vector3
+template<int DIM>
+class Vector
 {
     public:
-        Vector3(float X = 0.0f, float Y = 0.0f, float Z = 0.0f)
-        {
-            x = X;
-            y = Y;
-            z = Z;
+
+        Vector() {}
+
+        Vector(std::initializer_list<float> args) {
+            if (args.size() != DIM) {
+                throw std::invalid_argument("Vector must have DIM components");
+            }
+            auto it = args.begin();
+            for (int i = 0; i < DIM; ++i) {
+                data[i] = *it++;
+            }
         }
 
         // overloading operators
-        Vector3 operator+=(const Vector3 &v)
+        Vector operator+=(const Vector &v)
         {
             return (*this = (*this + v));
         }
 
-        Vector3 operator+(const Vector3 &v)
+        Vector operator+(const Vector &v)
         {
-            return Vector3(x + v.x, y + v.y, z + v.z);
+            Vector<DIM> result;
+            for (int i = 0; i < DIM; ++i) {
+                result.data[i] = data[i] + v.data[i];
+            }
+            return result;
         }
 
-        Vector3 operator-=(const Vector3 &v)
+        Vector operator-=(const Vector &v)
         {
             return (*this = (*this - v));
         }
 
-        Vector3 operator-(const Vector3 &v)
+        Vector operator-(const Vector &v)
         {
-            return Vector3(x - v.x, y - v.y, z - v.z);
+            Vector<DIM> result;
+            for (int i = 0; i < DIM; ++i) {
+                result.data[i] = data[i] - v.data[i];
+            }
+            return result;
         }
 
-        Vector3 operator*=(float number)
+        Vector operator*=(float number)
         {
-            return (*this = (*this * number));
+            for (int i = 0; i < DIM; ++i) {
+                data[i] *= number;
+            }
+            return *this;
         }
 
-        Vector3 operator*(float number)
+        Vector operator*(float number)
         {
-            return Vector3(x * number, y * number, z * number);
+            Vector<DIM> result;
+            for (int i = 0; i < DIM; ++i) {
+                result.data[i] = data[i] * number;
+            }
+            return result;
+
         }
 
-        Vector3 operator/=(float number)
+        Vector operator/=(float number)
         {
-            return (*this = (*this / number));
+            for (int i = 0; i < DIM; ++i) {
+                data[i] /= number;
+            }
+            return *this;
         }
 
-        Vector3 operator/(float number)
+        Vector operator/(float number)
         {
-            return Vector3( x / number, y / number, z / number);
+            Vector<DIM> result;
+            for (int i = 0; i < DIM; ++i) {
+                result.data[i] = data[i] / number;
+            }
+            return result;
         }
 
-        Vector3 operator-(void)
+        Vector operator-(void)
         {
-            return Vector3(-x, -y, -z);
+            return (*this) * -1;
         }
 
-        // cross product function
-        Vector3 operator*(const Vector3 &v){
-            return Vector3(y*v.z - z*v.y, z*v.x - x*v.z, x*v.y - y*v.x);
+        Vector cross(const Vector &v) const {
+            static_assert(DIM == 3, "Cross product only defined for 3D vectors");
+            Vector<DIM> result;
+            result = Vector<DIM>{data[1]*v.data[2] - data[2]*v.data[1],
+                                data[2]*v.data[0] - data[0]*v.data[2],
+                                data[0]*v.data[1] - data[1]*v.data[0]};
+            return result;
+        }
+
+        float dot(Vector v){
+    
+            float result = 0;
+            for (int i = 0; i < DIM; ++i) {
+                result += data[i] * v.data[i];
+            }
+            return result;
         };
 
-        // dot product function
-        float Dot(Vector3 v){
-            return (x*v.x + y*v.y + z*v.z);
+        float length(void){
+            return sqrt(dot(*this));
         };
 
-        float Length(void){
-            return sqrt(x*x + y*y + z*z);
-        };
-
-        Vector3 Normalize(void){
-            float length = Length();
-
-            x/=length;
-            y/=length;
-            z/=length;
-
+        Vector normalize(void){
+            float len = length();
+            if (len == 0) {
+                return *this;
+            }
+            for (int i = 0; i < 3; ++i) {
+                data[i] /= len;
+            }
             return *this;
         };
 
-        float Angle(Vector3 v){
-            float dot = Dot(v);
-            float length = Length() * v.Length();
-            float radians = acos(dot / length);
-
+        float angle(Vector v){
+            float dot_product = dot(v);
+            float length_product = length() * v.length();
+            if (length_product == 0) {
+                return 0;
+            }
+            float arg = dot_product / length_product;
+            if (arg <= -1.0) {
+                return 180.0;
+            } else if (arg >= 1.0) {
+                return 0.0;
+            }
+            float radians = acos(arg);
             float degrees = radians * (180.0 / M_PI);
-
-            return degrees; // degrees
+            return degrees;
         };
 
         void print(void){
-            cout << "Vector: " << x << ", " << y << ", " << z << endl;
+            std::cout << "Vector: [";
+            for (int i = 0; i < DIM; ++i) {
+                std::cout << data[i];
+                if (i < DIM-1) {
+                    std::cout << ", ";
+                }
+            }
+            std::cout << "]" << std::endl;
         };
 
+
     public:
-        float x;
-        float y;
-        float z;
+        float data[DIM];
 };
+
+using Vector1 = Vector<1>;
+using Vector2 = Vector<2>;
+using Vector3 = Vector<3>;
 
 #endif
