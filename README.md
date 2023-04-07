@@ -1,7 +1,14 @@
 # Lab 1 - Computer Graphics
 
 ## To run
-python3 compiler.py. This might not work on Linux or Mac. Tried it out only on Windows 11.
+
+``` python
+python3 compiler.py. 
+```
+
+Then run the executable file that is generated in the same folder called `app.exe`.
+
+This might not work on Linux or Mac yet. Tried it out only on Windows 11.
 
 ## Structure
 - `compiler.py` - The main file that runs the compiler for c++ including the libraries and dependencies
@@ -15,7 +22,6 @@ python3 compiler.py. This might not work on Linux or Mac. Tried it out only on W
 
 ## Sucessful Output
 When the program runs successfully, it should look like this:
-
 
 ## TODO
 - [x] Edit compiler.py to make it work across all Operating Systems
