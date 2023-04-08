@@ -3,11 +3,11 @@
 #include "./vectors/glm/vectorsGlm.cpp"
 
 
-int main(void)
+int main()
 {
     runVectors();
     runGlm();
-    runGui();
+    // runGui();
 
     return 0;
 }
