@@ -7,3 +7,6 @@ Application in OpenGL that simulates projectile launch considering:
 ## To run the simulation
 
 ## Video
+
+Lanzamiento de Proyectil - C++ | OpenGL - Computación Gráfica 2023
+https://youtu.be/6JKGWwb5VYM
