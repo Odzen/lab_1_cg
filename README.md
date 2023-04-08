@@ -1,5 +1,7 @@
 # Lab 1 - Computer Graphics
 
+# Vectors
+
 ## To run
 
 ``` python
